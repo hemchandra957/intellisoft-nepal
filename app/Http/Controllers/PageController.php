@@ -15,16 +15,22 @@ class PageController extends Controller
     {
 
         $services = Service::where('is_active', true)->orderBy('sort_order')->get();
-
-
         $featuredProjects = Project::where('featured', true)->latest()->take(6)->get();
-
-
         $teamMembers = Team::orderBy('sort_order')->get();
-
         $testimonials = Testimonial::where('is_visible', true)->latest()->get();
 
 
         return view('home', compact('services', 'featuredProjects', 'teamMembers', 'testimonials'));
+    }
+
+    public function about()
+    {
+        $teamMembers = Team::orderBy('sort_order')->get();
+        return view('about', compact('teamMembers'));
+    }
+
+    public function contact()
+    {
+        return view('contact');
     }
 }

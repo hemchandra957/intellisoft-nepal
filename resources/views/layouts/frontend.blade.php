@@ -15,9 +15,9 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-blue-800 tracking-tight">IntelliSoft</div>
             <div class="hidden md:flex space-x-8 text-gray-600 font-semibold text-sm">
-                <a href="#" class="hover:text-blue-600">Home</a>
-                <a href="#services" class="hover:text-blue-600">Services</a>
-                <a href="#projects" class="hover:text-blue-600">Projects</a>
+                <a href="{{ route('home') }}" class="hover:text-blue-600">Home</a>
+                <a href="{{ route('about') }}" class="hover:text-blue-600">About Us</a>
+                <a href="{{ route('contact') }}" class="hover:text-blue-600">Contact</a>
                 <a href="/admin" class="bg-blue-800 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Admin Login</a>
             </div>
         </div>
