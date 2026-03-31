@@ -6,7 +6,7 @@
         <p class="text-xl text-blue-200">Building Digital Excellence with Modern Technology</p>
     </header>
 
-    <section id="services" class="container mx-auto px-6 py-20">
+    <section id="services" class="container mx-A px-6 py-20">
         <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach($services as $service)
