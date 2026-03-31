@@ -23,7 +23,11 @@ class TestimonialResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('client_name')->required(),
+                Forms\Components\TextInput::make('company'),
+                Forms\Components\Textarea::make('content')->required(),
+                Forms\Components\TextInput::make('rating')->numeric()->default(5),
+                Forms\Components\Toggle::make('is_visible')->default(true),
             ]);
     }
 
@@ -31,7 +35,10 @@ class TestimonialResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('client_name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('company'),
+                Tables\Columns\IconColumn::make('is_visible')->boolean(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
                 //

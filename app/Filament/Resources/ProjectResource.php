@@ -23,7 +23,11 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('title')->required(),
+                Forms\Components\FileUpload::make('image')->directory('projects')->image(),
+                Forms\Components\TextInput::make('client_name'),
+                Forms\Components\TextInput::make('link')->url(),
+                Forms\Components\Toggle::make('featured'),
             ]);
     }
 

@@ -23,7 +23,10 @@ class ServiceResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('title')->required(),
+                Forms\Components\TextInput::make('icon')->placeholder('fas fa-laptop'),
+                Forms\Components\Textarea::make('short_description')->required(),
+                Forms\Components\Toggle::make('is_active')->default(true),
             ]);
     }
 
