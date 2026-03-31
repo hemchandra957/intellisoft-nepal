@@ -28,6 +28,17 @@ class PageController extends Controller
         $teamMembers = Team::orderBy('sort_order')->get();
         return view('about', compact('teamMembers'));
     }
+    public function services()
+    {
+        $services = \App\Models\Service::all();
+        return view('services', compact('services'));
+    }
+
+    public function projects()
+    {
+        $featuredProjects = \App\Models\Project::all();
+        return view('projects', compact('featuredProjects'));
+    }
 
     public function contact()
     {

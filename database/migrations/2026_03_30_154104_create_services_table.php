@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique(); // For isnpl.com.np/services/software-dev
             $table->string('icon')->nullable(); // Heroicons or FontAwesome string
             $table->text('short_description');
-            $table->longText('description'); // Full details
+            $table->text('description')->nullable()->change(); // Detailed description for the service page
             $table->string('image')->nullable();
             $table->boolean('is_active')->default(true);
             $table->integer('sort_order')->default(0); // To arrange them on homepage
