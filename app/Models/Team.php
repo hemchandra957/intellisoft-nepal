@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     protected $fillable = [
-        'name', 'designation', 'photo', 'linkedin_url',
-        'twitter_url', 'sort_order'
+        'name',
+        'designation',
+        'photo',
+        'linkedin_url',
+        'twitter_url',
+        'sort_order'
     ];
 }

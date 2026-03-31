@@ -14,13 +14,14 @@ class TeamResource extends Resource
 {
     protected static ?string $model = Team::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users'; // Changed to users icon
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Member Information')
+                Forms\Components\Section::make('Team Member Details')
+                    ->description('Add a new member to your awesome team.')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
@@ -29,39 +30,29 @@ class TeamResource extends Resource
                         Forms\Components\TextInput::make('designation')
                             ->required()
                             ->maxLength(255)
-                            ->placeholder('e.g. Senior Software Engineer'),
+                            ->placeholder('e.g. Senior Developer / CEO'),
 
                         Forms\Components\FileUpload::make('photo')
                             ->image()
-                            ->imageEditor() // Allows cropping
-                            ->circle()
+                            ->avatar() // फारममा फोटो गोलो देखाउन यो सही छ
+                            ->imageEditor()
                             ->directory('team-photos')
                             ->columnSpanFull(),
-                    ])->columns(2),
 
-                Forms\Components\Section::make('Social Media & Settings')
-                    ->schema([
                         Forms\Components\TextInput::make('linkedin_url')
                             ->url()
                             ->label('LinkedIn URL')
-                            ->placeholder('https://linkedin.com/in/username'),
+                            ->prefix('https://'),
 
+                        // Twitter URL थपिएको छ किनकि तपाईंको Model मा यो छ
                         Forms\Components\TextInput::make('twitter_url')
                             ->url()
-                            ->label('Twitter/X URL'),
-
-                        Forms\Components\TextInput::make('facebook_url')
-                            ->url()
-                            ->label('Facebook URL'),
+                            ->label('Twitter/X URL')
+                            ->prefix('https://'),
 
                         Forms\Components\TextInput::make('sort_order')
                             ->numeric()
-                            ->default(0)
-                            ->helperText('Lower numbers appear first on the website.'),
-
-                        Forms\Components\Toggle::make('is_active')
-                            ->label('Show on website')
-                            ->default(true),
+                            ->default(0),
                     ])->columns(2),
             ]);
     }
@@ -80,15 +71,16 @@ class TeamResource extends Resource
                 Tables\Columns\TextColumn::make('designation')
                     ->searchable(),
 
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean()
-                    ->label('Status'),
-
                 Tables\Columns\TextColumn::make('sort_order')
                     ->numeric()
                     ->sortable(),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->defaultSort('sort_order') // Sort by order by default
+            ->defaultSort('sort_order')
             ->filters([
                 //
             ])
