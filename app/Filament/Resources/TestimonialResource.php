@@ -23,23 +23,55 @@ class TestimonialResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('client_name')->required(),
-                Forms\Components\TextInput::make('company'),
-                Forms\Components\Textarea::make('content')->required(),
-                Forms\Components\TextInput::make('rating')->numeric()->default(5),
-                Forms\Components\Toggle::make('is_visible')->default(true),
-            ]);
+                Forms\Components\Section::make('Testimonial Details')
+                ->schema([
+                    Forms\Components\TextInput::make('client_name')
+                        ->required(),
+
+                    // 'company' को सट्टा 'client_designation' लेख्नुहोस् (Model सँग मिलाउन)
+                    Forms\Components\TextInput::make('company')
+                        ->label('Company/Designation'),
+
+                    // 'content' अनिवार्य छ (डेटाबेसले मागेको यही हो)
+                    Forms\Components\Textarea::make('content')
+                        ->required()
+                        ->columnSpanFull(),
+
+                    Forms\Components\TextInput::make('rating')
+                        ->numeric()
+                        ->default(5)
+                        ->minValue(1)
+                        ->maxValue(5),
+
+                    Forms\Components\FileUpload::make('image')
+                        ->image()
+                        ->directory('testimonials'),
+
+                    // 'is_visible' को सट्टा 'is_active' लेख्नुहोस् (Model सँग मिलाउन)
+                    Forms\Components\Toggle::make('is_visible')
+                        ->label('Show on Website')
+                        ->default(true),
+                ])->columns(2),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('client_name')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('company'),
-                Tables\Columns\IconColumn::make('is_visible')->boolean(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                Tables\Columns\ImageColumn::make('image')
+                ->circular(),
+            Tables\Columns\TextColumn::make('client_name')
+                ->sortable()
+                ->searchable(),
+            Tables\Columns\TextColumn::make('company'),
+            Tables\Columns\IconColumn::make('is_visible') //
+                ->boolean()
+                ->label('Visible'),
+            Tables\Columns\TextColumn::make('created_at')
+                ->dateTime(),
             ])
+
             ->filters([
                 //
             ])
