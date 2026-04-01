@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intellisoft Nepal | IT Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
@@ -33,13 +33,18 @@
                 </a>
 
                 <a href="{{ route('services') }}"
-                   class="px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition duration-300">
-                   Services
+                    class="px-4 py-2 transition duration-300 {{ request()->routeIs('services') ? 'nav-link-active' : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg' }}">
+                     Services
                 </a>
 
                 <a href="{{ route('projects') }}"
-                   class="px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition duration-300">
+                   class="px-4 py-2 transition duration-300 {{ request()->routeIs('projects') ? 'nav-link-active' : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg' }}">
                    Projects
+                </a>
+
+                <a href="{{ route('blogs') }}"
+                    class="px-4 py-2 transition duration-300 {{ request()->routeIs('blogs*') ? 'nav-link-active' : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg' }}">
+                    Blogs
                 </a>
 
                 <a href="{{ route('about') }}"

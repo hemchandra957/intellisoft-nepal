@@ -1,0 +1,74 @@
+[1mdiff --git a/database/migrations/2026_03_30_154104_create_services_table.php b/database/migrations/2026_03_30_154104_create_services_table.php[m
+[1mindex 45292a2..cac7ac7 100644[m
+[1m--- a/database/migrations/2026_03_30_154104_create_services_table.php[m
+[1m+++ b/database/migrations/2026_03_30_154104_create_services_table.php[m
+[36m@@ -14,13 +14,13 @@[m [mpublic function up(): void[m
+         Schema::create('services', function (Blueprint $table) {[m
+             $table->id();[m
+             $table->string('title');[m
+[31m-            $table->string('slug')->unique(); // For isnpl.com.np/services/software-dev[m
+[31m-            $table->string('icon')->nullable(); // Heroicons or FontAwesome string[m
+[32m+[m[32m            $table->string('slug')->unique();[m
+[32m+[m[32m            $table->string('icon')->nullable();[m
+             $table->text('short_description');[m
+[31m-            $table->text('description')->nullable()->change(); // Detailed description for the service page[m
+[32m+[m[32m            $table->text('description')->nullable()->change();[m
+             $table->string('image')->nullable();[m
+             $table->boolean('is_active')->default(true);[m
+[31m-            $table->integer('sort_order')->default(0); // To arrange them on homepage[m
+[32m+[m[32m            $table->integer('sort_order')->default(0);[m
+             $table->timestamps();[m
+         });[m
+     }[m
+[1mdiff --git a/database/migrations/2026_03_30_154117_create_projects_table.php b/database/migrations/2026_03_30_154117_create_projects_table.php[m
+[1mindex 9e08880..ee160ce 100644[m
+[1m--- a/database/migrations/2026_03_30_154117_create_projects_table.php[m
+[1m+++ b/database/migrations/2026_03_30_154117_create_projects_table.php[m
+[36m@@ -16,9 +16,9 @@[m [mpublic function up(): void[m
+             $table->string('title');[m
+             $table->string('client_name')->nullable();[m
+             $table->string('image');[m
+[31m-            $table->string('link')->nullable(); // External link to the project[m
+[32m+[m[32m            $table->string('link')->nullable();[m
+             $table->date('completion_date')->nullable();[m
+[31m-            $table->boolean('featured')->default(false); // To show on Home Page[m
+[32m+[m[32m            $table->boolean('featured')->default(false);[m
+             $table->timestamps();[m
+         });[m
+     }[m
+[1mdiff --git a/database/migrations/2026_03_30_155633_create_testimonials_table.php b/database/migrations/2026_03_30_155633_create_testimonials_table.php[m
+[1mindex c35fd5c..2588221 100644[m
+[1m--- a/database/migrations/2026_03_30_155633_create_testimonials_table.php[m
+[1m+++ b/database/migrations/2026_03_30_155633_create_testimonials_table.php[m
+[36m@@ -13,12 +13,12 @@[m [mpublic function up(): void[m
+     {[m
+         Schema::create('testimonials', function (Blueprint $table) {[m
+             $table->id();[m
+[31m-            $table->string('client_name'); // e.g., "John Doe"[m
+[31m-            $table->string('company')->nullable(); // e.g., "Tech Solutions Nepal"[m
+[31m-            $table->text('content'); // The actual review text[m
+[31m-            $table->integer('rating')->default(5); // Star rating (1-5)[m
+[31m-            $table->string('image')->nullable(); // Optional: Client's photo[m
+[31m-            $table->boolean('is_visible')->default(true); // To show/hide on website[m
+[32m+[m[32m            $table->string('client_name');[m
+[32m+[m[32m            $table->string('company')->nullable();[m
+[32m+[m[32m            $table->text('content');[m
+[32m+[m[32m            $table->integer('rating')->default(5);[m
+[32m+[m[32m            $table->string('image')->nullable();[m
+[32m+[m[32m            $table->boolean('is_visible')->default(true);[m
+             $table->timestamps();[m
+         });[m
+     }[m
+[1mdiff --git a/routes/web.php b/routes/web.php[m
+[1mindex 84b128f..6d46f63 100644[m
+[1m--- a/routes/web.php[m
+[1m+++ b/routes/web.php[m
+[36m@@ -11,7 +11,7 @@[m
+ Route::get('/projects', [PageController::class, 'projects'])->name('projects');[m
+ Route::get('/contact', [PageController::class, 'contact'])->name('contact');[m
+ [m
+[31m-// Contact Form Submit गर्ने Route[m
+[32m+[m
+ Route::post('/contact/send', [ContactController::class, 'store'])->name('contact.store');[m
+ [m
+ [m

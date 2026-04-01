@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('client_name')->nullable();
             $table->string('image');
-            $table->string('link')->nullable(); // External link to the project
+            $table->string('link')->nullable();
             $table->date('completion_date')->nullable();
-            $table->boolean('featured')->default(false); // To show on Home Page
+            $table->boolean('featured')->default(false);
             $table->timestamps();
         });
     }
