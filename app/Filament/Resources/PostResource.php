@@ -32,7 +32,7 @@ class PostResource extends Resource
 
                     Forms\Components\TextInput::make('slug')->required()->unique(ignoreRecord: true),
 
-                    Forms\Components\RichEditor::make('content') // यसले फोटो, बोल्ड, लिङ्क सबै हाल्न दिन्छ
+                    Forms\Components\RichEditor::make('content')
                         ->required()
                         ->columnSpanFull(),
                 ])->columns(2),
