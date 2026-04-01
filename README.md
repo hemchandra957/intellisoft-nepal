@@ -79,4 +79,4 @@ If you'd like to contribute, please fork the repository and use a feature branch
 The Intellisoft Nepal website is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ---
-<p align="center">Developed with ❤️ by <b>Intellisoft Nepal Team</b></p>
+<p align="center">Developed with ❤️ by <b>Hemuu</b></p>
