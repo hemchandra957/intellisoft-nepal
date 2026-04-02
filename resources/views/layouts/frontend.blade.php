@@ -58,6 +58,11 @@
                 Projects
             </a>
 
+            <a href="{{ route('career') }}"
+               class="{{ $linkClass }} {{ request()->routeIs('career') ? 'nav-link-active' : 'hover:text-blue-600 hover:bg-gray-100 dark:hover:bg-gray-800' }}">
+                Career
+            </a>
+
             <a href="{{ route('blogs') }}"
                class="{{ $linkClass }} {{ request()->routeIs('blogs*') ? 'nav-link-active' : 'hover:text-blue-600 hover:bg-gray-100 dark:hover:bg-gray-800' }}">
                 Blogs

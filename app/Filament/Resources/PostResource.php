@@ -57,7 +57,10 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('published_at')->dateTime()->sortable(),
+                Tables\Columns\IconColumn::make('is_published')->boolean()->sortable(),
+
             ])
             ->filters([
                 //

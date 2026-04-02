@@ -35,7 +35,11 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('client_name')->searchable()->sortable(),
+                Tables\Columns\IconColumn::make('featured')->boolean()->sortable(),
+                Tables\Columns\ImageColumn::make('image')->circular(),
+
             ])
             ->filters([
                 //
