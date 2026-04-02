@@ -2,93 +2,106 @@
 
 @section('content')
 
-<article class="bg-gradient-to-b from-gray-50 to-white py-16">
-    <div class="container mx-auto px-4 max-w-5xl">
+<!-- ✅ HERO (Same System Design) -->
+<section class="relative bg-gradient-to-br from-[#0b1120] via-blue-900 to-black py-28 text-white overflow-hidden">
 
-        <!-- Back Button -->
-        <div class="mb-10">
-            <a href="{{ route('blogs') }}"
-               class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-blue-600 transition-all group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                Back to Blogs
-            </a>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/20 blur-3xl rounded-full"></div>
+
+    <div class="container mx-auto px-6 text-center relative z-10 max-w-4xl">
+
+
+
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
+            {{ $post->title }}
+        </h1>
+
+        <!-- Meta -->
+        <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-blue-200">
+
+            <span>
+                {{ \Carbon\Carbon::parse($post->published_at ?? $post->created_at)->format('F d, Y') }}
+            </span>
+
+            <span>•</span>
+
+            <span>
+                {{ ceil(str_word_count(strip_tags($post->content)) / 200) }} min read
+            </span>
+
+            <span>•</span>
+
+            <span>Intellisoft Nepal</span>
+
         </div>
 
-        <!-- Title Section -->
-        <div class="mb-8">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6 tracking-tight">
-                {{ $post->title }}
-            </h1>
+    </div>
+</section>
 
-            <!-- Meta Info -->
-            <div class="flex items-center justify-between flex-wrap gap-4 text-gray-500 border-b pb-6">
-
-                <div class="flex items-center gap-4">
-                    <!-- Date -->
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        <span class="font-medium">
-                            {{ \Carbon\Carbon::parse($post->published_at)->format('F d, Y') }}
-                        </span>
-                    </div>
-
-                    <!-- Reading Time -->
-                    <span class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">
-                        {{ str_word_count(strip_tags($post->content)) / 200 < 1 ? 1 : ceil(str_word_count(strip_tags($post->content)) / 200) }} min read
-                    </span>
-                </div>
-
-                <!-- Author -->
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold shadow-md">
-                        I
-                    </div>
-                    <span class="font-semibold text-gray-700">Intellisoft Nepal</span>
-                </div>
-            </div>
-        </div>
+<!-- ✅ CONTENT -->
+<section class="py-20 bg-gray-50 dark:bg-[#0b1120]">
+    <div class="container mx-auto px-6 max-w-4xl">
 
         <!-- Thumbnail -->
         @if($post->thumbnail)
-            <div class="relative mb-14">
+            <div class="relative mb-12 group">
                 <img src="{{ asset('storage/' . $post->thumbnail) }}"
-                     alt="{{ $post->title }}"
-                     class="w-full max-h-[500px] object-cover rounded-3xl shadow-xl">
+                     class="w-full max-h-[500px] object-cover rounded-3xl shadow-xl group-hover:scale-[1.02] transition">
 
-                <!-- Overlay Glow -->
                 <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 to-transparent"></div>
             </div>
         @endif
 
-        <!-- Blog Content -->
-        <div class="prose prose-lg prose-blue max-w-none text-gray-800 leading-relaxed font-serif
-                    prose-headings:font-bold
-                    prose-h2:mt-10 prose-h2:mb-4
-                    prose-p:mb-6
-                    prose-img:rounded-xl
-                    prose-a:text-blue-600 hover:prose-a:text-blue-800">
+        <!-- Article Content -->
+        <div class="bg-white/80 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-3xl shadow-xl border">
 
-            {!! $post->content !!}
+            <div class="prose prose-lg prose-blue max-w-none text-gray-800 dark:text-gray-200 leading-relaxed font-serif
+                        prose-headings:font-bold
+                        prose-h2:mt-10 prose-h2:mb-4
+                        prose-p:mb-6
+                        prose-img:rounded-xl
+                        prose-a:text-blue-600 hover:prose-a:text-blue-800">
+
+                {!! $post->content !!}
+
+            </div>
 
         </div>
 
-        <!-- Footer -->
-        <div class="mt-20 pt-10 border-t border-gray-200 text-center">
-            <p class="text-gray-500 italic text-lg">
-                ✨ Thank you for reading!
+        <!-- ✅ AUTHOR BOX -->
+        <div class="mt-16 bg-white/80 dark:bg-white/5 backdrop-blur-xl p-6 rounded-2xl border shadow flex items-center gap-4">
+            <div class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">
+                I
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 dark:text-white">Intellisoft Nepal</h4>
+                <p class="text-sm text-gray-500">Sharing insights on technology & innovation</p>
+            </div>
+        </div>
+
+        <!-- ✅ CTA -->
+        <div class="mt-16 text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-10 rounded-3xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-4">
+                Want to build something like this? 🚀
+            </h3>
+            <p class="text-blue-100 mb-6">
+                Let our team help you transform your ideas into reality.
             </p>
-            <p class="text-gray-400 text-sm mt-2">
-                Stay tuned for more updates from <span class="font-semibold text-gray-700">Intellisoft Nepal</span>.
-            </p>
+
+            <a href="{{ route('contact') }}"
+               class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:shadow-lg transition">
+                Contact Us
+            </a>
+        </div>
+
+        <!-- ✅ BACK NAV -->
+        <div class="mt-12 text-center">
+            <a href="{{ route('blogs') }}"
+               class="text-blue-600 font-semibold hover:underline">
+                ← Back to all blogs
+            </a>
         </div>
 
     </div>
-</article>
+</section>
 
 @endsection
