@@ -16,7 +16,9 @@ Route::get('/blogs/{slug}', [PageController::class, 'blogDetail'])->name('blog.d
 
 
 Route::get('/career', [CareerController::class, 'index'])->name('career');
-Route::post('/career/apply', [CareerController::class, 'store'])->name('career.apply');
+Route::post('/career/apply', [CareerController::class, 'store'])->name('career.store');
+
+
 
 
 Route::post('/contact/send', [ContactController::class, 'store'])->name('contact.store');

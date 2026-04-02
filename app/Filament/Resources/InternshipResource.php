@@ -59,21 +59,15 @@ class InternshipResource extends Resource
                             ->directory('interns/cvs')
                             ->required()
                             ->openable()
-                            ->preserveFilemanes(),
-                        Forms\Components\FileUpload::make('photo')
-                            ->image()
-                            ->directory('interns/photos'),
-                        Forms\Components\FileUpload::make('letter')
-                            ->directory('interns/letters'),
+                            ->preserveFilenames(),
                         Forms\Components\Select::make('status')
-                            ->options([
-                                'pending' => 'Pending',
-                                'reviewing' => 'Reviewing',
-                                'accepted' => 'Accepted',
-                                'rejected' => 'Rejected',
-                            ])->default('pending')->required(),
+                          ->options([
+                                'Pending' => 'Pending',
+                                'Accepted' => 'Accepted',
+                                'Rejected' => 'Rejected',
+                            ])->default('Pending')->required(),
                     ])->columns(2),
-            ]);
+                 ]);
     }
 
 
@@ -87,19 +81,19 @@ class InternshipResource extends Resource
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'accepted' => 'success',
-                        'reviewing' => 'warning',
-                        'rejected' => 'danger',
-                        'pending' => 'gray',
+                        'Pending'  => 'warning',
+                        'Accepted' => 'success',
+                        'Rejected' => 'danger',
+                        default    => 'gray',
                     }),
                 Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
                     ->options([
-                        'pending' => 'Pending',
-                        'accepted' => 'Accepted',
-                        'rejected' => 'Rejected',
+                        'Pending'  => 'Pending',
+                        'Accepted' => 'Accepted',
+                        'Rejected' => 'Rejected',
                     ]),
             ])
             ->actions([
