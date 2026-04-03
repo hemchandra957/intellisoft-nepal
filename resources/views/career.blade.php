@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- ✅ HERO -->
+
 <section class="relative bg-gradient-to-br from-blue-900 via-[#0b1120] to-black py-32 text-white overflow-hidden">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/20 blur-3xl rounded-full"></div>
 
@@ -21,12 +21,12 @@
     </div>
 </section>
 
-<!-- ✅ MAIN -->
+
 <section class="py-24 bg-gray-50 dark:bg-[#0b1120]">
     <div class="container mx-auto px-6">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
 
-            <!-- LEFT JOB LIST -->
+
             <div class="lg:col-span-7 space-y-12">
                 @forelse($openings as $opening)
                     <div class="bg-white dark:bg-white/5 p-8 rounded-3xl shadow-sm border border-gray-200 dark:border-white/10">
@@ -39,7 +39,7 @@
                             {!! $opening->description !!}
                         </div>
 
-                        <!-- INFO -->
+
                         <div class="grid md:grid-cols-3 gap-4 mb-8">
 
                             <div class="p-4 bg-blue-50 rounded-2xl text-center">
@@ -74,7 +74,7 @@
                 @endforelse
             </div>
 
-            <!-- RIGHT FORM -->
+
             <div class="lg:col-span-5">
                 <div id="applicationForm" class="hidden lg:block sticky top-10 bg-white rounded-3xl shadow-2xl p-8 border">
 
@@ -85,7 +85,7 @@
                     <form action="{{ route('career.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
                         @csrf
 
-                        <!-- NAME -->
+
                         <div>
                             <label class="text-sm font-semibold text-gray-700">Full Name</label>
                             <input type="text" name="full_name" required
@@ -93,7 +93,7 @@
                                 class="w-full mt-1 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500">
                         </div>
 
-                        <!-- EMAIL + PHONE -->
+
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="text-sm font-semibold text-gray-700">Email Address</label>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
 
-                        <!-- GENDER + POSITION -->
+
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="text-sm font-semibold text-gray-700">Gender</label>
@@ -135,7 +135,7 @@
                             </div>
                         </div>
 
-                        <!-- ADDRESS -->
+
                         <div>
                             <label class="text-sm font-semibold text-gray-700">Address</label>
                             <div class="grid grid-cols-3 gap-2 mt-1">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
 
-                        <!-- EDUCATION -->
+
                         <div>
                             <label class="text-sm font-semibold text-gray-700">Education</label>
                             <input type="text" name="college" required
@@ -163,7 +163,7 @@
                             </div>
                         </div>
 
-                        <!-- DATE + CV -->
+
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="text-sm font-semibold text-gray-700">Available From</label>
@@ -178,7 +178,7 @@
                             </div>
                         </div>
 
-                        <!-- SUBMIT -->
+
                         <button type="submit"
                             class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition">
                             Submit Application 🚀

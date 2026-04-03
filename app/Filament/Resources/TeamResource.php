@@ -34,7 +34,7 @@ class TeamResource extends Resource
 
                         Forms\Components\FileUpload::make('photo')
                             ->image()
-                            ->avatar() // फारममा फोटो गोलो देखाउन यो सही छ
+                            ->avatar()
                             ->imageEditor()
                             ->directory('team-photos')
                             ->columnSpanFull(),
@@ -44,7 +44,7 @@ class TeamResource extends Resource
                             ->label('LinkedIn URL')
                             ->prefix('https://'),
 
-                        // Twitter URL थपिएको छ किनकि तपाईंको Model मा यो छ
+
                         Forms\Components\TextInput::make('twitter_url')
                             ->url()
                             ->label('Twitter/X URL')

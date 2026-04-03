@@ -2,10 +2,10 @@
 
 @section('content')
 
-<!-- ✅ HERO -->
+
 <section class="relative bg-gradient-to-br from-blue-900 via-[#0b1120] to-black text-white py-36 overflow-hidden">
 
-    <!-- Glow Effects -->
+
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/20 blur-3xl rounded-full"></div>
 
     <div class="container mx-auto px-6 text-center relative z-10">
@@ -35,7 +35,7 @@
             </a>
         </div>
 
-        <!-- Stats -->
+
         <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
                 <h3 class="text-3xl font-bold">100+</h3>
@@ -58,7 +58,7 @@
     </div>
 </section>
 
-<!-- ✅ SERVICES -->
+
 <section class="py-24 bg-gray-50 dark:bg-[#0b1120]">
     <div class="container mx-auto px-6">
 
@@ -95,7 +95,7 @@
     </div>
 </section>
 
-<!-- ✅ PROJECTS -->
+
 <section class="py-24">
     <div class="container mx-auto px-6">
 
@@ -134,7 +134,7 @@
     </div>
 </section>
 
-<!-- ✅ TEAM -->
+
 <section class="py-24 bg-gray-50">
     <div class="container mx-auto px-6 text-center">
 
@@ -154,7 +154,7 @@
     </div>
 </section>
 
-<!-- ✅ TESTIMONIALS -->
+
 <section class="py-24 bg-blue-900 text-white">
     <div class="container mx-auto px-6 text-center">
 
@@ -180,7 +180,7 @@
     </div>
 </section>
 
-<!-- ✅ CTA -->
+
 <section class="py-24 text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
     <div class="container mx-auto px-6">
 

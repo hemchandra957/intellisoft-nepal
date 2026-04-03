@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- ✅ HERO (Same System Design) -->
+
 <section class="relative bg-gradient-to-br from-[#0b1120] via-blue-900 to-black py-28 text-white overflow-hidden">
 
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/20 blur-3xl rounded-full"></div>
@@ -15,7 +15,6 @@
             {{ $post->title }}
         </h1>
 
-        <!-- Meta -->
         <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-blue-200">
 
             <span>
@@ -37,11 +36,11 @@
     </div>
 </section>
 
-<!-- ✅ CONTENT -->
+
 <section class="py-20 bg-gray-50 dark:bg-[#0b1120]">
     <div class="container mx-auto px-6 max-w-4xl">
 
-        <!-- Thumbnail -->
+
         @if($post->thumbnail)
             <div class="relative mb-12 group">
                 <img src="{{ asset('storage/' . $post->thumbnail) }}"
@@ -51,7 +50,7 @@
             </div>
         @endif
 
-        <!-- Article Content -->
+
         <div class="bg-white/80 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-3xl shadow-xl border">
 
             <div class="prose prose-lg prose-blue max-w-none text-gray-800 dark:text-gray-200 leading-relaxed font-serif
@@ -67,7 +66,7 @@
 
         </div>
 
-        <!-- ✅ AUTHOR BOX -->
+
         <div class="mt-16 bg-white/80 dark:bg-white/5 backdrop-blur-xl p-6 rounded-2xl border shadow flex items-center gap-4">
             <div class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">
                 I
@@ -78,7 +77,7 @@
             </div>
         </div>
 
-        <!-- ✅ CTA -->
+
         <div class="mt-16 text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-10 rounded-3xl shadow-lg">
             <h3 class="text-2xl font-bold mb-4">
                 Want to build something like this? 🚀
@@ -93,7 +92,7 @@
             </a>
         </div>
 
-        <!-- ✅ BACK NAV -->
+
         <div class="mt-12 text-center">
             <a href="{{ route('blogs') }}"
                class="text-blue-600 font-semibold hover:underline">

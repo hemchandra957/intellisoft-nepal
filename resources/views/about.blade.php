@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- ✅ HERO (MATCHING SERVICES STYLE) -->
+
 <section class="relative bg-gradient-to-br from-[#0b1120] via-[#0f172a] to-[#0b1120] py-32 text-white overflow-hidden">
 
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/20 blur-3xl rounded-full"></div>
@@ -26,19 +26,18 @@
     </div>
 </section>
 
-<!-- ✅ ABOUT CONTENT -->
+
 <section class="py-24 bg-gray-50 dark:bg-[#0b1120]">
     <div class="container mx-auto px-6">
 
         <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-            <!-- IMAGE -->
+
             <div class="relative">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" class="rounded-3xl shadow-2xl">
                 <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-blue-600 rounded-3xl"></div>
             </div>
 
-            <!-- TEXT -->
             <div>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-6">
                     We Create Impactful Digital Solutions
@@ -69,7 +68,6 @@
     </div>
 </section>
 
-<!-- ✅ TEAM SECTION (MATCH STYLE) -->
 <section class="py-24 bg-gray-50 dark:bg-[#0b1120]">
     <div class="container mx-auto px-6 text-center">
 
@@ -111,7 +109,7 @@
     </div>
 </section>
 
-<!-- ✅ CTA (MATCH SERVICES) -->
+
 <section class="py-24 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center relative overflow-hidden">
 
     <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>

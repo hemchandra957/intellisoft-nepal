@@ -49,7 +49,7 @@ class ServiceResource extends Resource
                             ->placeholder('This shows on the service cards...')
                             ->columnSpanFull(),
 
-                        // यो फिल्ड नभएर नै अघि Error आएको हो
+
                         Forms\Components\RichEditor::make('description')
                             ->required()
                             ->label('Full Detailed Description')

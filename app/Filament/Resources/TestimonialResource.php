@@ -28,11 +28,11 @@ class TestimonialResource extends Resource
                     Forms\Components\TextInput::make('client_name')
                         ->required(),
 
-                    // 'company' को सट्टा 'client_designation' लेख्नुहोस् (Model सँग मिलाउन)
+
                     Forms\Components\TextInput::make('company')
                         ->label('Company/Designation'),
 
-                    // 'content' अनिवार्य छ (डेटाबेसले मागेको यही हो)
+
                     Forms\Components\Textarea::make('content')
                         ->required()
                         ->columnSpanFull(),
@@ -47,7 +47,7 @@ class TestimonialResource extends Resource
                         ->image()
                         ->directory('testimonials'),
 
-                    // 'is_visible' को सट्टा 'is_active' लेख्नुहोस् (Model सँग मिलाउन)
+
                     Forms\Components\Toggle::make('is_visible')
                         ->label('Show on Website')
                         ->default(true),
@@ -65,7 +65,7 @@ class TestimonialResource extends Resource
                 ->sortable()
                 ->searchable(),
             Tables\Columns\TextColumn::make('company'),
-            Tables\Columns\IconColumn::make('is_visible') //
+            Tables\Columns\IconColumn::make('is_visible')
                 ->boolean()
                 ->label('Visible'),
             Tables\Columns\TextColumn::make('created_at')
