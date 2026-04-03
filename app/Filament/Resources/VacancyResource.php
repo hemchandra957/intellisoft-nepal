@@ -35,7 +35,14 @@ class VacancyResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')->weight('bold')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('location')->icon('heroicon-m-map-pin')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('job_type')->badge()->color('info')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('deadline')->date('M d, Y')->color('danger')->searchable()->sortable(),
+                Tables\Columns\IconColumn::make('is_active')
+                    ->boolean()
+                    ->label('Active')
+                    ->sortable(),
             ])
             ->filters([
                 //
